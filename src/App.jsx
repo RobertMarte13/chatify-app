@@ -17,9 +17,9 @@ function App() {
   useEffect(() => {
     supabase.auth.getSession().then(({ data: session }) => {
       setSession(session);
-      if (session === null || session === undefined) {
-        navigate("/login");
-      }
+      // if (session === null || session === undefined) {
+      // }
+      navigate("/login");
     });
 
     const {
