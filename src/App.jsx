@@ -50,7 +50,7 @@ function App() {
         </nav>
         <ChatContextProvaider>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/chatify-app/" element={<Home />} />
             <Route path="/home" element={<Home />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/create_profile" element={<CreateProfile />} />
