@@ -1,13 +1,13 @@
-/* eslint-disable react/prop-types */
-import { useState } from "react";
+
 
 // eslint-disable-next-line react/prop-types
 const GetUsersAllMessages = ({ id, usersAll }) => {
-  const [user, setUser] = useState([]);
 
-  if (usersAll !== undefined || usersAll === null) {
-    setUser(usersAll.filter((user) => user.users_id === id));
-  }
+
+  
+  // eslint-disable-next-line react/prop-types
+  const user = usersAll.filter((user) => user.users_id === id)
+  
 
   return (
     <p>
