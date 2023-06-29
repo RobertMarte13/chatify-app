@@ -5,12 +5,12 @@ export const ChatContext = createContext();
 
 // eslint-disable-next-line react/prop-types
 export const ChatContextProvaider = ({ children }) => {
-  const [chats, setChats] = useState([]);
-  const [users, setUsers] = useState({});
-  const [usersAll, setUsersAll] = useState([]);
-  const [messages, setMessages] = useState([]);
-  const [userId, setUserId] = useState();
-  
+  const [chats, setChats] = useState([{null: 'null'}]);
+  const [users, setUsers] = useState({ users: 'null'});
+  const [usersAll, setUsersAll] = useState([{null: 'null'}]);
+  const [messages, setMessages] = useState([{null: 'null'}]);
+  const [userId, setUserId] = useState(84345644646165);
+
   async () => {
     try {
       const data = await supabase.auth.getUser();

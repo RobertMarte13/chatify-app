@@ -5,7 +5,7 @@ const GetUsersAllMessages = ({ id, usersAll }) => {
 
 
   
-  // eslint-disable-next-line react/prop-types
+
   const user = usersAll.filter((user) => user.users_id === id)
   
 
