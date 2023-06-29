@@ -10,7 +10,7 @@ const Home = () => {
 
   const logoutUser = () => {
     supabase.auth.signOut();
-    navigate("/login");
+    navigate("/chatify-app/login");
   };
 
 

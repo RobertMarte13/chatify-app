@@ -14,7 +14,7 @@ const CreateProfile = () => {
         evt.preventDefault()
 
         createUsers(name)
-        navigate('/profile')
+        navigate('/chatify-app/profile')
     }
 
     return (
