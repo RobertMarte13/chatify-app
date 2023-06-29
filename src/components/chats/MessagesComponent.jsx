@@ -11,8 +11,8 @@ const MessagesComponent = ({ resMes, id, usersAll }) => {
     <div>
       {resMes &&
         // eslint-disable-next-line react/prop-types
-        resMes.map((mes) => (
-          <div key={mes.id}>
+        resMes.map((mes, index) => (
+          <div key={index}>
             <h1>{mes.message}</h1>
             <GetUsersAllMessages id={mes.user_id} usersAll={usersAll}/>
           </div>

@@ -27,14 +27,16 @@ const Chats = () => {
     getMessages();
     handleMessages(id);
     getUsersAll();
-  }, [id]);
+  }, [getUsersAll, id]);
 
 
   return (
     <div>
       <div>
-        {chats.map((chat) => (
-          <h1 onClick={() => handleMessages(chat.id)} key={chat.id}>
+        {
+          chats &&
+          chats.map((chat, index) => (
+          <h1 key={index} onClick={() => handleMessages(chat.id)}>
             {chat.name}
           </h1>
         ))}
