@@ -27,7 +27,7 @@ const Chats = () => {
     getMessages();
     handleMessages(id);
     getUsersAll();
-  }, [getUsersAll, id]);
+  }, [id]);
 
 
   return (
