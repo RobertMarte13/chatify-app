@@ -5,7 +5,8 @@ import { useChatContext } from "../../hooks/useChatContext";
 
 // eslint-disable-next-line react/prop-types
 const Chats = () => {
-  const { chats, messages, getChats, getMessages, usersAll, getUsersAll } = useChatContext();
+  const { chats, messages, getChats, getMessages, usersAll, getUsersAll } =
+    useChatContext();
 
   const [resMes, setResMes] = useState(null);
   const [id, setId] = useState(0);
@@ -18,28 +19,27 @@ const Chats = () => {
     setResMes(data);
     setId(id);
     getMessages();
-    
   };
 
   // console.log(messages[0])
   useEffect(() => {
     getChats();
     getMessages();
-    handleMessages(id)
-    getUsersAll()
+    handleMessages(id);
+    getUsersAll();
   }, [getMessages, id]);
 
-  // console.log(usersAll)
 
-  
   return (
     <div>
-      {chats.map((chat) => (
-        <h1 onClick={() => handleMessages(chat.id)} key={chat.id}>
-          {chat.name}
-        </h1>
-      ))}
-      <MessagesComponent resMes={resMes} id={id} usersAll={usersAll} />
+      <div>
+        {chats.map((chat) => (
+          <h1 onClick={() => handleMessages(chat.id)} key={chat.id}>
+            {chat.name}
+          </h1>
+        ))}
+      </div>
+      <MessagesComponent resMes={resMes} id={id} usersAll={usersAll}  />
     </div>
   );
 };

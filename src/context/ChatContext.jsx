@@ -9,7 +9,9 @@ export const ChatContextProvaider = ({ children }) => {
   const [users, setUsers] = useState({});
   const [usersAll, setUsersAll] = useState([]);
   const [messages, setMessages] = useState([]);
-  const [userId, setUserId] = useState(async () => {
+  const [userId, setUserId] = useState();
+  
+  async () => {
     try {
       const data = await supabase.auth.getUser();
       const { id } = data.data.user;
@@ -17,8 +19,8 @@ export const ChatContextProvaider = ({ children }) => {
     } catch (error) {
       console.log(error);
     }
-  });
-
+  }
+  
   const getChats = async () => {
     const { data } = await supabase.from("chats").select();
 
@@ -67,7 +69,7 @@ export const ChatContextProvaider = ({ children }) => {
   };
 
   const getUsersAll = async () => {
-    const { data } = await supabase.from("users_name").select();
+    const { data } = await supabase.from("users_name").select('*');
 
     setUsersAll(data);
 

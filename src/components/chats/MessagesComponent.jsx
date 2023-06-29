@@ -1,34 +1,23 @@
 import MessagesForm from "./MessagesForm";
+import GetUsersAllMessages from "./UserNameMessages"
 
 // eslint-disable-next-line react/prop-types
 const MessagesComponent = ({ resMes, id, usersAll }) => {
 
-  const getUsersAllMessages = (id) => {
-    const user = usersAll.filter(user => user.users_id === id)
+  // console.log(vesInput)
 
-    return (
-      <p>
-        {
-          user &&
-            user.map((user) =>(
-              <span key={user.id}>{user.name}</span>
-            ))
-        }
-      </p>
-    )
-    // console.log(user)
-  }
 
   return (
     <div>
       {resMes &&
+        // eslint-disable-next-line react/prop-types
         resMes.map((mes) => (
           <div key={mes.id}>
             <h1>{mes.message}</h1>
-            {getUsersAllMessages(mes.user_id)}
+            <GetUsersAllMessages id={mes.user_id} usersAll={usersAll}/>
           </div>
         ))}
-      {resMes !== null ? <MessagesForm id={id} /> : null}
+      <MessagesForm id={id} />
     </div>
   );
 };
