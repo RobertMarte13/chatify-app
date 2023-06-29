@@ -1,12 +1,17 @@
 import { supabase } from "../supabase/supabase";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
+import HCaptcha from "@hcaptcha/react-hcaptcha";
 
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState(null);
   const [firstName, setFirstName] = useState("");
   const [age, setAge] = useState(null);
+  const [captchaToken, setCaptchaToken] = useState("")
+
+  const captcha = useRef()
+
 
   const handleSubmit = async (evt) => {
     evt.preventDefault();
@@ -15,13 +20,14 @@ const Register = () => {
         email: email,
         password: password,
         options: {
+          captchaToken,
           data: {
             first_name: firstName,
             age: age,
           },
         },
       });
-
+      captcha.current.resetCaptcha();
       if (error) throw Error;
       console.log(data);
     } catch (error) {
@@ -55,6 +61,11 @@ const Register = () => {
           onChange={(evt) => setAge(evt.target.value)}
           name="age"
           placeholder="Enter your age"
+        />
+        <HCaptcha 
+          ref={captcha}
+          sitekey="0d20ccb8-2a3f-4072-93d4-d1ea69ccf30e"
+          onVerify={setCaptchaToken}
         />
         <button>Register</button>
       </form>
