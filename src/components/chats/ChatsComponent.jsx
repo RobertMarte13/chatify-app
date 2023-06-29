@@ -5,7 +5,7 @@ import { useChatContext } from "../../hooks/useChatContext";
 
 // eslint-disable-next-line react/prop-types
 const Chats = () => {
-  const { chats, messages, getChats, getMessages, usersAll, getUsersAll } =
+  const { chats, messages, getChats, getMessages, usersAll, getUsersAll, getUsersAllId } =
     useChatContext();
 
   const [resMes, setResMes] = useState(null);
@@ -27,6 +27,7 @@ const Chats = () => {
     getMessages();
     handleMessages(id);
     getUsersAll();
+    getUsersAllId()
   }, [id]);
 
 
