@@ -18,7 +18,7 @@ function App() {
     supabase.auth.getSession().then(({ data: session }) => {
       setSession(session);
       if (session.session === null || session.session === undefined) {
-        navigate("/login");
+        navigate("/chatify-app/login");
       }
 
     });
@@ -37,7 +37,7 @@ function App() {
       <div className="App">
         <ChatContextProvaider>
           <Routes>
-            <Route path="/login" element={<Login />} />
+            <Route path="/chatify-app/login" element={<Login />} />
           </Routes>
         </ChatContextProvaider>
       </div>
@@ -51,9 +51,9 @@ function App() {
         <ChatContextProvaider>
           <Routes>
             <Route path="/chatify-app/" element={<Home />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/create_profile" element={<CreateProfile />} />
+            <Route path="/chatify-app/home" element={<Home />} />
+            <Route path="/chatify-app/profile" element={<Profile />} />
+            <Route path="/chatify-app/create_profile" element={<CreateProfile />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </ChatContextProvaider>
