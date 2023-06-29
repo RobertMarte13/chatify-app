@@ -50,6 +50,7 @@ function App() {
         <ChatContextProvaider>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/create_profile" element={<CreateProfile />} />
             <Route path="*" element={<NotFound />} />
