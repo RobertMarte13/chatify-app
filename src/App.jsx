@@ -5,7 +5,6 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 import { supabase } from "./supabase/supabase";
 import NotFound from "./components/NotFound";
 import Login from "./components/Login";
-import Logout from "./components/logout";
 import { ChatContextProvaider } from "./context/ChatContext";
 import Profile from "./components/profile/Profile";
 import CreateProfile from "./components/profile/CreateProfile";
@@ -38,7 +37,6 @@ function App() {
         <ChatContextProvaider>
           <Routes>
             <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Logout />} />
           </Routes>
         </ChatContextProvaider>
       </div>

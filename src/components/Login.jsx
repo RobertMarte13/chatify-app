@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { supabase } from "../supabase/supabase";
 import { useNavigate } from "react-router-dom";
+import Register from "./Register";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -43,6 +44,7 @@ const Login = () => {
         />
         <button>login</button>
       </form>
+      <Register />
     </div>
   );
 };
