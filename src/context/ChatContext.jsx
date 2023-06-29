@@ -69,7 +69,7 @@ export const ChatContextProvaider = ({ children }) => {
   };
 
   const getUsersAll = async () => {
-    const { data } = await supabase.from("users_name").select('*');
+    const { data } = await supabase.from("users_name").select();
 
     setUsersAll(data);
 
